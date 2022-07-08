@@ -21,7 +21,6 @@ html{
 /*Globales*/
 
 body{
-    background-color: var(--primario);
     font-size: 1.6rem !important;
     line-height: 1.5 !important;
 }
@@ -78,11 +77,11 @@ h3{
 }
 
 .dropdown-item h3{
-    font-size: 1.7rem !important;
+    font-size: 1.6rem !important;
 }
 
 .dropdown-item:hover{
-    background-color: var(--negro) !important;
+    background-color: rgb(104, 100, 100) !important;
 }
 
 .form-control {
