@@ -23,6 +23,14 @@ html{
 body{
     font-size: 1.6rem !important;
     line-height: 1.5 !important;
+    font-family: var(--fuentePrincipal) !important;
+}
+
+.body__img{
+    background-image: url(/img/Logo_DyD.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 5rem !important;
 }
 
 p{
@@ -32,7 +40,7 @@ p{
 }
 
 *{
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 img{
@@ -62,14 +70,12 @@ h3{
     font-size: 2.4rem !important;
 }
 
-.logo-tienda{
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-}	
 
-.titulo h1{
+/*Header*/
+
+.titulo__bienvenido{
     color: var(--negro);
+    margin : 2rem 0rem;
 }
 
 .tienda-marca h3{
@@ -78,10 +84,15 @@ h3{
 
 .dropdown-item h3{
     font-size: 1.6rem !important;
+    color: var(--negro);
 }
 
 .dropdown-item:hover{
-    background-color: rgb(104, 100, 100) !important;
+    background-color: rgb(116, 112, 112) !important;
+}
+
+.dropdown-item:hover h3{
+  color: var(--blanco);
 }
 
 .form-control {
@@ -90,4 +101,68 @@ h3{
     font-size: 1rem;
     font-weight: 200rem !important;
     line-height: 1.5;
+}
+
+.container__fluid--activo,
+.nav-item :hover{
+color: var(--blanco) !important;
+}
+
+/*Grid*/
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   margin-left: 2rem;
+}
+
+@media (min-width: 768px){
+    .grid{
+        grid-template-columns: repeat(3, minmax(50px, 1fr));
+    }
+}
+
+/*main*/
+
+.subtitulo__productos{
+    margin-top: 2rem;
+}
+
+.producto{
+    margin-left: 1.5rem;
+}
+
+.producto__descripcion,
+.producto__precio
+{
+    color: black;
+    text-align: center;
+    font-family: var(--fuentePrincipal) !important;
+    text-decoration: none !important;
+}
+
+.producto__descripcion{
+    font-size: 2rem !important;
+}
+
+.producto__precio{
+    font-size: 1.8rem !important;
+    color: var(--secundario);
+}
+
+.shadow{
+    -webkit-box-shadow: -8px 0px 22px 42px rgba(0,0,0,0.71);
+-moz-box-shadow: -8px 0px 22px 42px rgba(0,0,0,0.71);
+box-shadow: -8px 0px 22px 42px rgba(0,0,0,0.71);
+margin-right: 2rem;
+margin-bottom: 3rem;
+margin-top: 2rem;
+}
+
+/*Footer*/
+.footer__texto{
+    color: var(--negro) !important;
+    text-align: center;
+    font-family: var(--fuentePrincipal) !important;
+    font-size: 2rem !important;
 }
