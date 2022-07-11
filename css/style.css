@@ -1,7 +1,7 @@
 :root{
     --primario: #9C27BB;
     --primarioOscuro: #89119D;
-    --secundario: #FFCE00;
+    --secundario: #f3c163;
     --secundarioOscuro: rgb(233,287,2);
     --blanco: #FFF;
     --negro: #000;
@@ -24,6 +24,7 @@ body{
     font-size: 1.6rem !important;
     line-height: 1.5 !important;
     font-family: var(--fuentePrincipal) !important;
+    background-color: #F0F0F0;
 }
 
 .body__img{
@@ -31,6 +32,12 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     background-position-y: 5rem !important;
+}
+
+.parrafo{
+    color:var(--negro) !important;
+    font-family: var(--fuentePrincipal) !important;
+    text-align: center;
 }
 
 p{
@@ -160,9 +167,102 @@ margin-top: 2rem;
 }
 
 /*Footer*/
+
+.footer{
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+    background:#999;
+}
+
 .footer__texto{
     color: var(--negro) !important;
     text-align: center;
     font-family: var(--fuentePrincipal) !important;
-    font-size: 2rem !important;
+    font-size: 1.8rem !important;
+
+}
+
+/*Nosotros*/
+
+@media(min-width: 768px)
+{
+    .nosotros{
+        grid-template-columns: repeat(2,auto);
+    }
+
+    .nosotros__imagen{
+        grid-column: 2/3;
+    }
+
+    .nosotros__parrafo{
+        text-align: center !important;
+    }
+
+    .bloques{
+        grid-template-columns: repeat(4,auto) !important;
+    }
+    
+}
+
+.nosotros{
+    display:grid;
+    grid-template-rows: repeat(2, auto);
+    margin-top: 1.5rem;
+    column-gap: 1rem;
+}
+
+.nosotros__imagen{
+    max-width: 100%;
+    width: 100%;
+    grid-row: 1/2;
+    margin: 0 auto;
+}
+
+.nosotros__contenido{
+    margin-top: 2.5rem;
+    line-height: 3rem;
+}
+
+.nosotros__partes{
+    margin-bottom: 1rem;
+}
+
+.nosotros__parrafo{
+    color: var(--negro);
+    margin: 0 3rem;
+    text-align: justify;
+}
+
+.comprar__titulo{
+    margin: 4rem;
+}
+
+.bloque{
+    text-align: center;
+}
+
+.bloque__imagen{
+    max-width: 25%;
+}
+
+.bloques{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    grid-gap: 1rem;
+}
+
+.bloque__parrafo{
+    text-align: justify;
+    margin: 0 1rem;
+}
+
+.comprar{
+    margin-bottom: 4rem;
+}
+
+.bloque__titulo{
+    margin: 1.5rem 0;
 }
