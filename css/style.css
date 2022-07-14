@@ -42,8 +42,8 @@ body{
 
 p{
     font-size: 1.8rem !important;
-    font-family: Arial, Helvetica, sans-serif !important;
-    color: var(--blanco);
+    font-family: var(--fuentePrincipal) !important;
+    
 }
 
 *{
@@ -265,4 +265,100 @@ margin-top: 2rem;
 
 .bloque__titulo{
     margin: 1.5rem 0;
+}
+
+/*Producto*/
+
+@media (min-width: 768px){
+    .producto{
+        display: grid;
+        grid-template-columns: repeat(2,auto);
+        column-gap: 2rem;
+    }
+
+    .producto__contenido{
+        margin-top: 4rem;
+    }
+
+    .formulario{
+        display: grid;
+        grid-template-columns: repeat(3,1fr) !important;
+    }
+
+    .formulario__submit{
+        transition: background-color 0.7s ease;
+        grid-column: 1/2 !important;
+    }
+
+    .formulario__submit:hover{
+        background-color: var(--secundario);
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 500px){
+    .formulario{
+        display: grid;
+        grid-template-columns: repeat(3,auto) !important;
+       
+    }
+
+    .formulario__submit{
+        grid-column: 1/4;
+    }
+
+}
+
+.nombre__producto{
+    margin-top: 1.5rem;
+}
+
+.producto__contenido{
+    margin-right: 1rem;
+}
+
+.producto__imagen{
+   margin: 0 auto;
+    display: grid;
+}
+
+.formulario{
+    display: grid;
+    grid-template-columns: repeat(3,auto-fit);
+    gap: 2rem;
+}
+
+.formulario__cantidad {
+    border: .4rem solid grey;
+    font-size: 1.6rem;
+    font-family: var(--fuentePrincipal);
+    padding-top: 1rem;
+    padding-bottom: .8rem;
+}
+
+.formulario__talla{
+    border: .4rem solid grey;
+    font-size: 1.6rem;
+    font-family: var(--fuentePrincipal);
+    padding: 1rem;
+}
+
+.formulario__color{
+    border: .4rem solid grey;
+    font-size: 1.6rem;
+    font-family: var(--fuentePrincipal);
+    padding: 1rem;
+}
+
+.formulario__submit{
+    margin-bottom: 3rem;
+    background-color: yellow;
+    font-size: 1.5rem;
+    font-family: var(--fuentePrincipal) !important;
+    padding: 1.5rem;
+}
+
+.formulario__submit:hover{
+    background-color: var(--secundario);
+    cursor: pointer;
 }
