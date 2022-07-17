@@ -362,3 +362,91 @@ margin-top: 2rem;
     background-color: var(--secundario);
     cursor: pointer;
 }
+
+/*Ventana Modal*/
+
+.modal{
+    max-width: 100% !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background: rgba(0,0,0,.6) !important;
+    transition: all 500ms ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#btn-modal:checked ~ .modal{
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal__contenedor{
+    margin: auto !important;
+    color: var(--blanco) !important;
+    box-shadow: 1px 7px 25px rgba(0,0,0,0.71) !important;
+    transition: all 500ms ease;
+    position: relative;
+    transform: translateY(-30%);
+}
+
+#btn-modal:checked ~ .modal .modal__contenedor{
+    transform: translateY(0%);
+}
+
+.modal__contenedor h1{
+    padding: 10px;
+    background: #db5646;
+    color: var(--blanco);
+}
+
+.modal__contenedor label{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--blanco);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.lbl-modal{
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: yellow;
+    font-size: 1.5rem;
+    border: .2rem solid grey;
+    font-family: var(--fuentePrincipal) !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center !important;
+}
+
+.lbl-modal p{
+    color: var(--negro);
+    margin-top: 1rem !important;
+}
+
+.lbl-modal:hover{
+    background-color: var(--secundario);
+}
+
+#btn-modal{
+    display: none;
+}
+
+.buy{
+    background: var(--blanco);
+    transition: 0.5s;
+    border-left: solid thin rgba(0, 0, 0, 0.1);
+   
+}
+
+.buy i{
+    color: var(--secundario);
+    transition: transform 0.5s;
+}
+
+.buy:hover{
+    transform: rotate(360deg);
+}
