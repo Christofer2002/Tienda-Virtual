@@ -28,7 +28,7 @@ body{
 }
 
 .body__img{
-    background-image: url(/img/Logo_DyD.png);
+    background-image: url(../img/./Logo_DyD.png);
     background-repeat: no-repeat;
     background-position: center;
     background-position-y: 5rem !important;
@@ -271,8 +271,8 @@ margin-top: 2rem;
 
 @media (min-width: 768px){
     .producto{
-        display: grid;
-        grid-template-columns: repeat(2,auto);
+        display: grid !important;
+        grid-template-columns: repeat(2,auto) !important;
         column-gap: 2rem;
     }
 
@@ -435,18 +435,3 @@ margin-top: 2rem;
     display: none;
 }
 
-.buy{
-    background: var(--blanco);
-    transition: 0.5s;
-    border-left: solid thin rgba(0, 0, 0, 0.1);
-   
-}
-
-.buy i{
-    color: var(--secundario);
-    transition: transform 0.5s;
-}
-
-.buy:hover{
-    transform: rotate(360deg);
-}
