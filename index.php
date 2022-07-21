@@ -1,3 +1,13 @@
+<?php
+  require 'config/config.php';
+  require 'config/database.php';
+  $db = new Database();
+  $conn = $db->connect();
+
+  $sql = $conn->prepare("SELECT id, nombre, precio FROM productos WHERE activo = 1");
+  $sql->execute();
+  $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +23,11 @@
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="preload" href="./css/style.css" as="style">
   <link rel="stylesheet" type="text/css" href="./css/style.css">
+<<<<<<< Updated upstream
   <link rel="stylesheet" href="./css/bootstrap-min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+=======
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+>>>>>>> Stashed changes
 </head>
 
 <body class="body__img">
@@ -53,7 +67,13 @@
                     <hr class="dropdown-divider">
                   </li>
                   <li><a class="dropdown-item" href="#">
+<<<<<<< Updated upstream
                       <h3>Ver carrito</h3>
+=======
+                  <h3 class="carrito">
+                        Ver carrito <span id="num_cart" class="badge btn-success"><?php echo $num_cart ?></span>
+                      </h3>
+>>>>>>> Stashed changes
                     </a></li>
                 </ul>
               </li>
@@ -78,6 +98,10 @@
       <p class="footer__texto">Tienda DyD - Todos los derechos reservados 2022</p>
     </footer>
   </main>
+<<<<<<< Updated upstream
+=======
+  <script src="../js/compra.js"></script>
+>>>>>>> Stashed changes
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

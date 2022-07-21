@@ -43,7 +43,6 @@ body{
 p{
     font-size: 1.8rem !important;
     font-family: var(--fuentePrincipal) !important;
-    
 }
 
 *{
@@ -130,6 +129,10 @@ color: var(--blanco) !important;
 }
 
 /*main*/
+
+.subtitulo h1{
+    color: var(--negro) !important;
+}
 
 .subtitulo__productos{
     margin-top: 2rem;
@@ -435,3 +438,53 @@ margin-top: 2rem;
     display: none;
 }
 
+<<<<<<< Updated upstream
+=======
+/*Detalles*/
+
+.precio{
+    font-size: 2.2rem !important;
+}
+
+.row img{
+    display: flex !important;
+    margin: 0 auto !important;
+}
+
+.section__detalle{
+  max-width: 80%;
+  margin: 0 auto !important;
+}
+
+.section__detalle img{
+    max-width: 100%;
+
+}
+
+.carousel-control-prev-icon{
+    text-align: center !important;
+}
+
+.precio__sub p{
+   text-decoration-line: line-through !important;
+}
+
+@media (min-width: 1280px) {
+    .carrito{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+     }
+}
+
+.carrito p{
+
+    font-size: 1.5rem !important;
+}
+
+.btn{
+    font-family: var(--fuentePrincipal) !important;
+    font-weight: bold !important;
+    font-size: 1.5rem !important;
+}
+>>>>>>> Stashed changes

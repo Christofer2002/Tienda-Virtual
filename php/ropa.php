@@ -1,4 +1,8 @@
 <?php
+<<<<<<< Updated upstream
+=======
+  require '../config/config.php';
+>>>>>>> Stashed changes
   require '../config/database.php';
   $db = new Database();
   $conn = $db->connect();
@@ -6,6 +10,12 @@
   $sql = $conn->prepare("SELECT id, nombre, precio FROM productos WHERE activo = 1");
   $sql->execute();
   $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+<<<<<<< Updated upstream
+=======
+
+  session_destroy();
+  
+>>>>>>> Stashed changes
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +62,13 @@
                           <li><a class="dropdown-item" href="#"><h3>Joyeria</h3></a></li>
                           <li><a class="dropdown-item" href="#"><h3>Cosas para el hogar</h3></a></li>
                           <li><hr class="dropdown-divider"></li>
+<<<<<<< Updated upstream
                           <li><a class="dropdown-item" href="#"><h3>Ver carrito</h3></a></li>
+=======
+                          <li><a class="dropdown-item" href="#"><h3 class="carrito">
+                        Ver carrito <span id="num_cart" class="badge btn-success"><?php echo $num_cart ?></span>
+                      </h3></a></li>
+>>>>>>> Stashed changes
                         </ul>
                       </li>
                       <li class="nav-item">
@@ -89,24 +105,43 @@
             <!-- <img class="producto__imagen" src="../img/1.jpg" alt="imagen camisa"> -->
             <div class="producto__informacion">
               <p class="producto__descripcion"><?php echo $row['nombre']; ?></p>
+<<<<<<< Updated upstream
               <p class="producto__precio">$ <?php echo number_format($row['precio'], 2, '.', ','); ?></p>
+=======
+              <p class="producto__precio"> <?php echo MONEDA. ' ' .  number_format($row['precio'], 2, '.', ','); ?></p>
+>>>>>>> Stashed changes
             </div>
           </a>
           <div class="d-flex justify-content-between">
             <div class="btn-group">
+<<<<<<< Updated upstream
               <a href="" class="btn btn-primary" >Detalles</a>
             </div>
               <a href="" class="btn btn-success" >Agregar al Carrito</a>
+=======
+              <a href="detalles.php?id=<?php echo $row['id']; ?>&token=<?php echo hash_hmac('sha1',$row['id'], KEY_TOKEN);?>" class="btn btn-outline-primary" >Detalles</a>
+            </div>
+            <button class="btn btn-outline-success" type="button" onclick="addProducto(<?php echo $row['id']; ?>, '<?php echo hash_hmac('sha1',$row['id'], KEY_TOKEN); ?>')">Agregar al carrito</button>
+>>>>>>> Stashed changes
           </div>   
         </div>
         <?php } ?>
       </div>
+<<<<<<< Updated upstream
+=======
+      <br>
+>>>>>>> Stashed changes
         <footer class="footer">
         <p class="footer__texto">Tienda DyD - Todos los derechos reservados 2022</p>
         </footer>
     </main>
     
+<<<<<<< Updated upstream
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+=======
+<script src="../js/compra.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+>>>>>>> Stashed changes
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
