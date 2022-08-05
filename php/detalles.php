@@ -13,10 +13,10 @@ if ($id == '' || $token == '') {
   $token_tmp = hash_hmac('sha1', $id, KEY_TOKEN);
 
   if ($token == $token_tmp) {
-    $sql = $conn->prepare("SELECT count(id) FROM productos WHERE id = ? AND activo = 1 LIMIT 1");
+    $sql = $conn->prepare("SELECT count(id) FROM ropa WHERE id = ? AND activo = 1 LIMIT 1");
     $sql->execute([$id]);
     if ($sql->fetchColumn() > 0) {
-      $sql = $conn->prepare("SELECT nombre, descripcion, precio, descuento FROM productos WHERE id = ? AND activo = 1");
+      $sql = $conn->prepare("SELECT nombre, descripcion, precio, descuento FROM ropa WHERE id = ? AND activo = 1");
       $sql->execute([$id]);
       $row = $sql->fetch(PDO::FETCH_ASSOC);
       $nombre = $row['nombre'];
@@ -66,7 +66,6 @@ if ($id == '' || $token == '') {
   <link rel="stylesheet" href="../css/normalize.css">
   <link rel="preload" href="../css/style.css" as="style">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="preload" href="../css/modal.css" as="style">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
@@ -92,7 +91,7 @@ if ($id == '' || $token == '') {
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle container__fluid--activo" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Comprar
+                Catalogo
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                   <li><a class="dropdown-item" href="../php/ropa.php">
@@ -104,14 +103,7 @@ if ($id == '' || $token == '') {
                   <li><a class="dropdown-item" href="#">
                       <h3>Cosas para el hogar</h3>
                     </a></li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item" href="#">
-                      <h3 class="carrito">
-                        Ver carrito <span id="num_cart" class="badge btn-success"><?php echo $num_cart ?></span>
-                      </h3>
-                    </a></li>
+                
                 </ul>
               </li>
               <li class="nav-item">
@@ -121,10 +113,17 @@ if ($id == '' || $token == '') {
                 <a class="nav-link" href="../html/contactanos.html">Contactanos</a>
               </li>
             </ul>
-            <form class="d-flex">
+            <li class="d-flex">
+              <a class="btn btn-primary" href="../php/carrito_compra.php">
+                <h4>
+                  Ver carrito <span id="num_cart" class="badge btn-success"><?php echo $num_cart ?></span>
+                </h4>
+              </a>
+            </li>
+           <!--  <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            </form> -->
           </div>
         </div>
       </nav>
@@ -176,7 +175,26 @@ if ($id == '' || $token == '') {
           </p>
           <div class="d-grid gap-3 col-10 mx-auto">
             <button class="btn btn-primary" type="button">Comprar ahora</button>
-            <button class="btn btn-outline-success" type="button" onclick="addProducto(<?php echo $id; ?>, '<?php echo $token_tmp; ?>')">Agregar al carrito</button>
+            <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-success" type="button" onclick="addProducto(<?php echo $id; ?>, '<?php echo $token_tmp; ?>')">Agregar al carrito</a>
+         
+          <!-- Modal -->
+          <div class="modal fade justify-content-between" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h3 class="modal-title" id="exampleModalLabel">Producto Agregado</h3>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    ¡El producto se ha agregado al carrito correctamente!
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
           </div>
           <br><br>
         </div>
@@ -187,10 +205,10 @@ if ($id == '' || $token == '') {
     </footer>
   </main>
   <script src="../js/compra.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -19,7 +19,7 @@ function connect(){
 
     return $pdo;
     }catch(PDOException $e){
-        echo "Error Conexion: " . $e->getMessage();
+        echo "Error Con la Conexion a la Base de Datos: " . $e->getMessage();
         exit;
     }
 }
